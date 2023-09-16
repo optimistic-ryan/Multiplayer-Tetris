@@ -27,10 +27,10 @@ class Block {
       void rotatecc(); // counter c
 
       
-      std::string blockType(); // return type of block
+      std::string blockType(); // return the type of block
       bool empty(); // check if a block is completely cleared
-      int getLevel(); // return level of the block get dropped
-      void clearLine(int line); // clear line and move down pixels above the line
+      int getLevel(); // return the level of the block
+      void clearLine(int line); 
       void setPixel(int x, int y);
       std::vector<std::pair<int, int>> getPixels();
       std::pair<int, int> getPivot();
