@@ -7,10 +7,12 @@ using namespace std;
 Game::Game(int a, std::string seqfile1, std::string seqfile2)
     : alive{a}, prevAlive{a}, seqfile1{seqfile1}, seqfile2{seqfile2},
       initialBoards{a}, currPlayer{0}, restarted{false} {
+        
   // initialize players and targets as needed
   for (int i = 0; i < initialBoards; i++) {
     string file;
     enableBonus = false;
+      
     // handling provided seqfiles
     if (seqfile1 != "" && i % 2 == 0) {
       file = seqfile1;
@@ -35,7 +37,7 @@ Game::Game(int a, std::string seqfile1, std::string seqfile2)
   }
 }
 
-// force a the observer to render once
+// force the observer to render
 void Game::render() {
   shared_ptr<Board> currBoard = players[currPlayer];
   if (Board::start != 0) {
@@ -330,7 +332,7 @@ void Game::setDeath(Board *dead) {
   }
 
   if (remove == -1) {
-    return; // No matching player found, exit the function
+    return; // no matching player found, exit the function
   }
 
   if (remove < players.size()) {
