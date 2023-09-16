@@ -32,8 +32,6 @@ void Board::dropStar() {
   g.updateMaxScore(score);
 }
 
-//-----------------------block/board behaviors-----------------------
-
 // move takes in command and checks if we can move the block  using checkCollide
 void Board::move(string cmd, Block *b) {
   int gravity = currLevel->getGravity() + heaviness;
@@ -292,7 +290,7 @@ void Board::clearBoard() {
 
 Block *Board::getCurrent() const { return current.get(); }
 
-// swap the current block with the block on hold (bonus feature)
+// swap the current block with the block on hold 
 void Board::swapHold() {
   string now;
   if (hold == "nothing") {
@@ -318,7 +316,7 @@ string Board::getNext() const { return next; }
 
 int Board::getScore() const { return score; }
 
-//-----------------------levels-----------------------
+
 int Board::getLevelVal() const { return currLevel->getLevel(); }
 
 void Board::levelUp() {
@@ -377,8 +375,7 @@ void Board::levelDown() {
 
 Level *Board::getLevel() const { return currLevel.get(); }
 
-//-----------------------special actions-----------------------
-// ask a player to chose special action for the target
+// ask a player to chose special action for their target
 void Board::special(int count) {
   g.render();
 
@@ -410,7 +407,7 @@ void Board::special(int count) {
   }
 }
 
-// send chosen effect to opponent
+// send chosen effect to the target
 void Board::sendEffect(const string &effect) { g.getEffect(effect); }
 
 // force a block to the target
@@ -443,7 +440,6 @@ void Board::setHeavy(bool val) {
 }
 
 // special action that sends garbage lines to the bottom of target's board
-// the lines sent depends on how many lines this board clears (bonus feature)
 void Board::addGarbage(int lines) {
   srand((unsigned)time(NULL));
   // Get a random number
@@ -498,7 +494,6 @@ void Board::force(string b) {
   }
 }
 
-//-----------------------rendering-----------------------
 ostream &operator<<(ostream &out, const Board &b) {
   for (int c = 0; c < 11; ++c) {
     cout << "-";
@@ -527,8 +522,8 @@ string Board::getGraphicalState(int row, int col) const {
 string Board::getPrevState(int row, int col) const { return prev[row][col]; }
 
 string Board::nextBlock() { return next; }
-// check if the given four cordinates collide with the existing block in the
-// board
+
+// check if the given four cordinates collide with an existing block 
 bool Board::checkCollide(int x1, int x2, int x3, int x4, int y1, int y2, int y3,
                          int y4) {
 
@@ -566,7 +561,7 @@ void Board::shiftUp() {
   }
 }
 
-// check if the board is has all cleared and add additional score
+// check if the board is has all cleared 
 bool Board::allClear() {
   for (int r = 17; r >= 0; --r) {
     for (int c = 0; c < 11; ++c) {
