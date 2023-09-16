@@ -23,7 +23,7 @@ class Game : public Subject {
     std::vector<int> targets;
     std::vector<int> maxScores;
     int currPlayer;
-    std::ifstream file;  // Sequence File
+    std::ifstream file;  // sequence File
     std::string stem;
     bool enableBonus;
     bool restarted;
@@ -49,7 +49,7 @@ class Game : public Subject {
     void update();
     std::shared_ptr<Board> getBoardPtr();
 
-    //Command Line Interpreter
+    // command line interpreter
     void setLevel(int level);
     void setBonus(bool setting);
     void setRestarted(bool val);
