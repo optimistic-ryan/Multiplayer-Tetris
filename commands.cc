@@ -39,7 +39,8 @@ void Commands::processCommands() {
   g.setPrevAlive(g.getAlive());
   string command;
   cin >> command;
-  // Parse the multiplier prefix if present
+  
+  // parse the multiplier prefix if present
   int multiplier = 0;
   int i = 0;
   bool flag = true;
@@ -62,18 +63,17 @@ void Commands::processCommands() {
   }
 
   command = command.substr(i);
-  // Find possible matches for the command in the trie
+  
+  // find possible matches for the command in the trie
   auto matches = trie->find(command);
 
-  // If there are multiple matches or no matches, it's an ambiguous or unknown
-  // command
+  // if there are multiple matches or no matches, it's an ambiguous or unknown command
   if (matches.second != 1) {
     cout << "Unknown or ambiguous command: " << command << endl;
     processCommands();
     return;
   }
 
-  // Execute the command.
   string matchedCommand = matches.first[0];
 
   if (matchedCommand != "restart") {
@@ -116,7 +116,6 @@ void Commands::processCommands() {
         } else {
           cout << "No filename specified for norandom command." << endl;
         }
-
       } else if (matchedCommand == "sequence") {
         string filename;
         if (cin >> filename) {
@@ -124,7 +123,6 @@ void Commands::processCommands() {
         } else {
           cout << "No filename specified for sequence command." << endl;
         }
-
       } else if (matchedCommand == "special") {
         g.getCommand("special");
       } else if (matchedCommand == "I") {
