@@ -28,7 +28,7 @@ Xwindow::Xwindow(int width, int height) {
   XFlush(d);
   XFlush(d);
 
-  // Set up colours.
+  // set up colors
   XColor xcolour;
   Colormap cmap;
   char color_vals[10][10]={"white", "black", "red", "green", "blue", "cyan", "yellow", "magenta", "orange", "brown"};
@@ -42,7 +42,6 @@ Xwindow::Xwindow(int width, int height) {
 
   XSetForeground(d,gc,colours[Black]);
 
-  // Make window non-resizeable.
   XSizeHints hints;
   hints.flags = (USPosition | PSize | PMinSize | PMaxSize );
   hints.height = hints.base_height = hints.min_height = hints.max_height = height;
