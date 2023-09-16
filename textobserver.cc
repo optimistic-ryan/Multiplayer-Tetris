@@ -65,7 +65,7 @@ void TextObserver::notify() {
 
   out << endl;
 
-  // Displaying the level
+  // displaying the level
   for (int i = 0; i < length; i++) {
     out << "Level:" << setw(5) << levels[i];
     if (i != length - 1) {
@@ -74,7 +74,7 @@ void TextObserver::notify() {
   }
   out << endl;
 
-  // Displaying the score
+  // displaying the score
   vector<int> scores = subject->getScores();
 
   for (int i = 0; i < length; i++) {
@@ -185,7 +185,6 @@ void TextObserver::notify() {
     out << spacing;
   }
   out << endl;
-//----------------printing holds-------------------
 
 // if bonus is enable, displaying the hold blocks
 if (subject->isBonus()) {
@@ -220,17 +219,6 @@ if (subject->isBonus()) {
   out << endl;
 }
     
-
-
-
-
-
-
-
-
-
-//----------------------------------------------
-  // printing arrows
   for (int b = 0; b < length; b++) {
     for (int c = 0; c < COLS; c++) {
       if (c == 0 && b == player) {
